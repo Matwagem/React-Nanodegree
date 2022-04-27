@@ -2,10 +2,11 @@ import Book
 from "./Book";
 const Shelf = ({shelfOption, books, changeBookShelf}) => {
 
-    console.log("shelf created")
+    //console.log("shelf created")
+    //console.log(books)
     return (
         <div className="bookshelf">
-            <h2 className="bookshelf-title">{shelfOption.value}</h2>
+            <h2 className="bookshelf-title">{shelfOption.label}</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
                  {

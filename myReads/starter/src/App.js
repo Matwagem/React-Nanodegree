@@ -23,19 +23,16 @@ function App() {
           //Books now contains all books available
       }
       getBooks();
-      console.log(books);
   }, []);
 
   //edit
   const changeBookShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(books => {
-    const tempArr = Array.from(books)
-    setBooks(tempArr.map(b => {
-      if(b.id === book.id){
-        b.shelf = shelf;
-      }
-    }))
-  })};
+    BooksAPI.update({id: book.id}, shelf)
+    .then(() => {
+      book.shelf = shelf
+      setBooks(books.filter((b) => b.id !== book.id).concat(book))
+    })
+  };
 
   return (
     <Routes>

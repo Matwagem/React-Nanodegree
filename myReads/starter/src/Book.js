@@ -1,15 +1,16 @@
-import Select from "react-select";
 import { useEffect, useState } from "react";
 
 const Book = ({currBook, changeBookShelf, shelfBooks}) => {
-
+    //Initial state which allows for 'none' to appear in all search books
     const [state, setState] = useState('none');
 
+    //Change handler that triggers the changeBookShelf method from App and adjusts the state across the app
     const changeHandler = (e) => {
         setState(e.target.value);
         changeBookShelf(currBook, e.target.value)
     }
 
+    //On Book creation we check the status, and either set the State to the current book passed for the main page, or compare it to all shelves for the search page
     useEffect(() => {
         const checkStatus = () => {
            setState(currBook.shelf)
@@ -20,14 +21,18 @@ const Book = ({currBook, changeBookShelf, shelfBooks}) => {
            })
         }
         checkStatus();
-    }, []);
+        return () => {
+            //empty
+        }
+    }, [currBook, shelfBooks]);
   
-
+    //Accounts for missing thumbnail images
     const imageChecker =
         currBook.imageLinks && currBook.imageLinks.thumbnail
             ? currBook.imageLinks.thumbnail
             : "N/A";
 
+    //Return statement accounting for edge-cases, missing titles/authors, or also multiple authors. Default state is set to {state}, which is defined above in the useEffect hook
     return (
         <div className="book">
             <div className="book-top">

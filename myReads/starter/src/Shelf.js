@@ -1,9 +1,7 @@
 import Book
 from "./Book";
 const Shelf = ({shelfOption, books, changeBookShelf}) => {
-
-    //console.log("shelf created")
-    //console.log(books)
+    //Return statement mapping all the books to the relevant shelf using shelfOption, books, and the change method from App
     return (
         <div className="bookshelf">
             <h2 className="bookshelf-title">{shelfOption.label}</h2>
@@ -11,12 +9,12 @@ const Shelf = ({shelfOption, books, changeBookShelf}) => {
               <ol className="books-grid">
                  {
                     books.map(book => (
-                        <li>
+                        <li key={book.id}>
                             <Book key={book.id} currBook={book} defaultValues={{value: shelfOption.value, label: shelfOption.label}} changeBookShelf={changeBookShelf}/>
                         </li>
-                    )
-                    )}
-                  </ol>
+                    ))
+                }
+                </ol>
             </div>
         </div>
     )

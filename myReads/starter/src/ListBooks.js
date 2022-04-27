@@ -1,23 +1,13 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react"
-import * as BooksAPI from "./BooksAPI"
-import { useState } from "react";
-import Select from "react-select";
-import Book from "./Book";
 import Shelf from "./Shelf";
 
 const ListBooks = ({books, options, changeBookShelf}) => {
-
-    console.log("this is the listbooks component: ")
-    console.log(books)
-
+    //Method that returns the filtered book for the current shelf that's being mapped
     const filteredBooks = (shelfOption) => {
-       return books.filter(book => book.shelf == shelfOption.value)
+       return books.filter(book => book.shelf === shelfOption.value)
     }
 
-    // To be used to manage book state and pass to the API
-    const [value, setValue] = useState('');
-
+    //Return statement looking through shelfOptions passed as param above. It's passing the key, shelfOption selected, filtered books for that shelf, and the changeBookShelf method from App
     return(
         <div className="list-books">
           <div className="list-books-title">
@@ -28,8 +18,8 @@ const ListBooks = ({books, options, changeBookShelf}) => {
             <div>
               {
                   options.map(shelfOption => (
-                      shelfOption.value != "none"  && 
-                        <Shelf key={shelfOption.key} shelfOption={shelfOption} books={filteredBooks(shelfOption)} changeBookShelf={changeBookShelf}/>
+                      shelfOption.value !== "none"  && 
+                        <Shelf key={shelfOption.value} shelfOption={shelfOption} books={filteredBooks(shelfOption)} changeBookShelf={changeBookShelf}/>
                   ))
               }
             </div>

@@ -34,10 +34,11 @@ function App() {
     })
   };
 
+
   return (
     <Routes>
       <Route  exact path="/"  element={<ListBooks books={books} options={options} changeBookShelf={changeBookShelf}/>}/>
-      <Route path="/Search" element={<Search/>}/>
+      <Route path="/Search" element={<Search books={books} changeBookShelf={changeBookShelf} options={options}/>}/>
     </Routes>
   );
 }

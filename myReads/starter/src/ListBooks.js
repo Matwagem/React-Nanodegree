@@ -28,7 +28,8 @@ const ListBooks = ({books, options, changeBookShelf}) => {
             <div>
               {
                   options.map(shelfOption => (
-                      <Shelf key={shelfOption.key} shelfOption={shelfOption} books={filteredBooks(shelfOption)} changeBookShelf={changeBookShelf}/>
+                      shelfOption.value != "none"  && 
+                        <Shelf key={shelfOption.key} shelfOption={shelfOption} books={filteredBooks(shelfOption)} changeBookShelf={changeBookShelf}/>
                   ))
               }
             </div>

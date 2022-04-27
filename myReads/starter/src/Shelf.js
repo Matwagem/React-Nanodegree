@@ -12,7 +12,6 @@ const Shelf = ({shelfOption, books, changeBookShelf}) => {
                  {
                     books.map(book => (
                         <li>
-                            {console.log(book.shelf)}
                             <Book key={book.id} currBook={book} defaultValues={{value: shelfOption.value, label: shelfOption.label}} changeBookShelf={changeBookShelf}/>
                         </li>
                     )

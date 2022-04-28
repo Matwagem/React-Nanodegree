@@ -52,7 +52,7 @@ const Search = ({books, options, changeBookShelf}) => {
           <div className="search-books-results">
             <ol className="books-grid">
             {
-            searchBooks.map(book => (
+            query && searchBooks.map(book => (
               <li key={book.id}>
                   <Book key={book.id} currBook={book} shelfBooks={books} changeBookShelf={changeBookShelf}/>
               </li>

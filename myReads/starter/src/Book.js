@@ -57,10 +57,12 @@ const Book = ({currBook, changeBookShelf, shelfBooks}) => {
                 </div>
                 <div className="book-title">{currBook.title}</div>
                 {
-                    currBook.author &&
-                        currBook.authors.map(author => (
+                    currBook.authors 
+                        ? currBook.authors.map(author => (
                             <div className="book-authors">{author}</div>
                             ))
+                        : ""
+                        
                 }
                 
             

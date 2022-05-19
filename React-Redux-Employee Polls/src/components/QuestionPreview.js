@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { formatQuestion } from "../utils/helpers";
+import { formatQuestion, formatDate } from "../utils/helpers";
 
 const QuestionPreview = (props) => {
-    const {question, user, id} = props;
+    const {question, user, id, timestamp} = props;
     console.log(question);
     console.log(user);
     console.log(id);
@@ -13,8 +13,13 @@ const QuestionPreview = (props) => {
                 <span className="author">{user.name}</span>
             </div>
             <div>
+                <span className="timestamp">{formatDate(question.timestamp)}</span>
+            </div>
+            <div>
                 <Link to={`../questions/${id}`}>
-                    Show
+                    <button>
+                        Show
+                    </button>
                 </Link>
             </div>
         </div>
@@ -23,9 +28,14 @@ const QuestionPreview = (props) => {
 
 const mapStateToProps = ({authedUser, questions, users}, props) => {
     const { id } = props.router.params;
+    const question = questions[id];
 
     return {
-        id,
+        authedUser,
+        qid: id,
+        question: question
+          ? formatQuestion(question, users[question.author], authedUser)
+          : null
     }
 }
 

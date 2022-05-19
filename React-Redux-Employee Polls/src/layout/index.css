@@ -284,3 +284,58 @@ label {
   width: 150px;
   border-radius: 360px;
 }
+
+.question-preview-container {
+  width: fit-content;
+  float: left;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #c3bdbd47;
+  border-radius: 1px;
+  background-color: #efefef;
+}
+
+.question-preview-container div{
+  display: flex;
+  align-items: center;
+  font-weight:bold;
+}
+
+.question-preview-container a {
+  width: 100%;
+  text-align: center;
+}
+
+
+.question-preview-container div button{
+  text-align:center;
+  margin: 0 auto;
+  display:inline-block;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  background-color: #6e33ffc4;
+  border: 0px;
+  color: white;
+  transition: background-color 0.4s;
+}
+
+.question-preview-container div button:hover{
+  background-color: black;
+  cursor: pointer;
+}
+
+.unanswered {
+  float: left;
+}
+
+.timestamp {
+  font-weight:100;
+  font-size:12px;
+  text-align:center;
+  margin: 0 auto;
+  display:inline-block;
+}

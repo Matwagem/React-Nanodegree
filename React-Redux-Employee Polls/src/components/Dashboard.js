@@ -10,17 +10,14 @@ const Dashboard = (props) => {
     return (
         <div className="container home">
             <div className="answered-questions">
-                <ul>
                     <h3>Unaswered Questions</h3>
                     {
                         unansweredQuestions.length ? unansweredQuestions.map(question => (
-                        <Link to={`../questions/${question.id}`}>
                             <QuestionPreview key={question.id} id={question.id} question={question} user={users[question.author]}/>
-                        </Link>
                     )) : ''
                     }
-                </ul>
             </div>
+            <hr/>
             <div className="unanswered">
                 <h3>Answered Questions</h3>
                     {

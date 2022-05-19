@@ -328,7 +328,7 @@ label {
   cursor: pointer;
 }
 
-.unanswered {
+.answered, .unanswered {
   float: left;
 }
 

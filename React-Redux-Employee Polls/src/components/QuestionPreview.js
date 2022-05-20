@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { formatQuestion, formatDate } from "../utils/helpers";
+import { formatDate } from "../utils/helpers";
 import LoginChecker from "./LoginChecker";
 
 const QuestionPreview = (props) => {
-    const {question, user, id, timestamp} = props;
+    const {question, user, id} = props;
     return (
         <div className="question-preview-container">
             <LoginChecker/>
@@ -23,19 +23,6 @@ const QuestionPreview = (props) => {
             </div>
         </div>
     )
-}
-
-const mapStateToProps = ({authedUser, questions, users}, props) => {
-    const { id } = props.router.params;
-    const question = questions[id];
-
-    return {
-        authedUser,
-        qid: id,
-        question: question
-          ? formatQuestion(question, users[question.author], authedUser)
-          : null
-    }
 }
 
 export default QuestionPreview;

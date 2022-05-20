@@ -5,7 +5,6 @@ import { useState } from "react";
 import LoginChecker from "./LoginChecker";
 
 const NewQuestion = ({dispatch, authedUser}) => {
-
     const navigate = useNavigate();
     const [optionOne, setOptionOne] = useState('');
     const [optionTwo, setOptionTwo] = useState('');

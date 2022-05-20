@@ -1,4 +1,3 @@
-import logo from '../layout/logo.svg';
 import '../layout/App.css';
 import { useEffect, Fragment } from 'react';
 import { handleInitialData } from "../actions/shared";
@@ -16,7 +15,7 @@ import Nav from './Nav';
 function App(props) {
   useEffect(() => {
     props.dispatch(handleInitialData());
-  }, []);
+  }, [props]);
 
   return (
     <Fragment>
@@ -28,12 +27,12 @@ function App(props) {
               ? null
               : (
               <Routes>
-                <Route exact path="/" element={<LoginPage/>}/>
-                <Route exact path='/home' element={<Dashboard />} />
+                <Route exact path='/' element={<Dashboard/>} />
                 <Route path='/questions/:id' element={<QuestionPage/>} />
                 <Route exact path='/leaderboard' element={<Leaderboard />} />
                 <Route exact path='/add' element={<NewQuestion />} />
                 <Route path="*" element={<PageNotFound/>} />
+                <Route exact path="/login" element={<LoginPage/>}/>
               </Routes>
             )
           }

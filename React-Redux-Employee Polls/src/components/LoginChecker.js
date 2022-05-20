@@ -1,19 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 
 const LoginChecker = (props) => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+    const loc = useLocation();
 
     useEffect(() => {
-        let loggedState = props.loggedState;
+        const loggedState = props.loggedState;
         if (loggedState){
-            navigate("/", { replace: true });
-            console.log("NOT AUTHED")
-        } else {
-            console.log("AUTHED")
+            navigate("/login", {state:{location: loc.pathname}});
         }
-    }, [props.loggedState])
+    }, [props.loggedState, loc.pathname, navigate])
 }
 
 function mapStateToProps({authedUser}) {

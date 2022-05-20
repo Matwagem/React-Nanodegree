@@ -4,7 +4,7 @@ import LoginChecker from "./LoginChecker";
 const Leaderboard = (props) => {
     const { users } = props;
     const sortedUsers = users.sort( (a, b) => b.totalScore - a.totalScore);
-
+    
     return (
         <div>
             <LoginChecker/>

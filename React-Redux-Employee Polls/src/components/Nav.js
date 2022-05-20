@@ -15,7 +15,7 @@ const Nav = (props) => {
         <nav className="nav">
             <ul>
                 <li>
-                    <Link to="/home">Home</Link> 
+                    <Link to="/">Home</Link> 
                 </li>
                 <li>
                     <Link to="/leaderboard">Leaderboard</Link> 
@@ -42,7 +42,7 @@ const Nav = (props) => {
                             ?   <div onClick={handleClick} className='logout-div'>
                                     <span>Logout</span>
                                 </div>
-                            :   <Link to='/'>
+                            :   <Link to='/login'>
                                     <span>Login</span>
                                 </Link>
                     }

@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
 import { useState } from "react";
 import { setAuthedUser } from "../actions/authedUser";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoginPage = (props) => {
     const { userIds, users, dispatch } = props;
     const [selectedOption, setSelectedOption] = useState(userIds[0]);
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -14,7 +15,7 @@ const LoginPage = (props) => {
         console.log(e.target.value);
         if(e.target.value !== ""){
             dispatch(setAuthedUser(e.target.value));
-            navigate("/home")
+            navigate(location.state.location);
         }
     }
 

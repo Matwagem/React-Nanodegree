@@ -297,3 +297,14 @@ label {
 .logout-div span {
   font-weight: lighter !important;
 }
+
+.react-tabs__tab--selected {
+  background: #8c5efb !important;
+  border-color: #aaa;
+  color: white !important;
+  border-radius: 3px 3px 0 0 !important;
+}
+
+.react-tabs__tab-list {
+  border-bottom: 1px solid #aaaaaa4f !important;
+}

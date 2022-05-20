@@ -12,10 +12,12 @@ export function formatQuestion(question, author, authedUser){
   const {
     id,
     optionOne: {
+      // eslint-disable-next-line
       votes: [],
       text: optionOneText,
     },
     optionTwo: {
+      // eslint-disable-next-line
       votes: [],
       text: optionTwoText,
     },

@@ -1,5 +1,5 @@
-import { _saveQuestion, _saveQuestionAnswer, _getUsers} from "./_DATA";
-import { formatDate } from "./helpers";
+import { _saveQuestion, _saveQuestionAnswer, _getUsers} from "./utils/_DATA";
+import { formatDate } from "./utils/helpers";
 
 jest.setTimeout(10000);
 

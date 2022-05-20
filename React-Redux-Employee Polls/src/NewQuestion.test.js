@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import NewQuestion from '../components/NewQuestion';
-import middleware from "../middleware";
-import reducer from "../reducers";
+import NewQuestion from './components/NewQuestion';
+import middleware from "./middleware";
+import reducer from "./reducers";
 import { Provider } from 'react-redux';
 import { createStore } from "redux";
 import { BrowserRouter as Router } from "react-router-dom";

@@ -1,12 +1,13 @@
 import { connect } from "react-redux";
+import LoginChecker from "./LoginChecker";
 
 const Leaderboard = (props) => {
-
     const { users } = props;
     const sortedUsers = users.sort( (a, b) => b.totalScore - a.totalScore);
 
     return (
         <div>
+            <LoginChecker/>
             <h2>Leaderboard</h2>
             <table>
                 <thead>
@@ -41,7 +42,6 @@ const Leaderboard = (props) => {
 
 function mapStateToProps({ users }) {
     const usersList = Object.values(users)
-    //TODO: ensure user answers are updated when they answer a question or log a question
     usersList.map( (user) => user.totalScore = Object.keys(user.answers).length + user.questions.length )
     return {
         users: usersList

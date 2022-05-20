@@ -1,5 +1,5 @@
 import { saveQuestion, saveQuestionAnswer } from '../utils/api';
-import { saveQuestionToUser } from './users';
+import { saveQuestionToUser,saveAnswerToUser } from './users';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
@@ -42,9 +42,14 @@ export function handleAddQuestion(optionOne, optionTwo) {
 			optionTwoText: optionTwo,
 			author: authedUser
 		})
-			.then((question) => dispatch(addQuestion(question)))
-            //TODO: associate question with the user
-			.then(() => dispatch(hideLoading()));
+			.then((question) => {
+                dispatch(addQuestion(question));
+                dispatch(saveQuestionToUser(question));
+                dispatch(hideLoading());
+            })
+            .catch(function() {
+                console.log("rejected");
+            })
 	};
 }
 
@@ -59,7 +64,7 @@ export function handleAnswer (qid, answer) {
       })
         .then(() => {
           dispatch(answerQuestion({authedUser, qid, answer}));
-          dispatch(saveQuestionToUser({authedUser, qid, answer}));
+          dispatch(saveAnswerToUser({authedUser, qid, answer}));
         })
     }
   }

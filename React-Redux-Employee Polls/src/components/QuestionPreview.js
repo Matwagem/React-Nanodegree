@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { formatQuestion, formatDate } from "../utils/helpers";
+import LoginChecker from "./LoginChecker";
 
 const QuestionPreview = (props) => {
     const {question, user, id, timestamp} = props;
-    console.log(question);
-    console.log(user);
-    console.log(id);
     return (
         <div className="question-preview-container">
+            <LoginChecker/>
             <div>
                 <img alt="user avatar" className="avatar" src={user.avatarURL}/>
                 <span className="author">{user.name}</span>

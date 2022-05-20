@@ -4,7 +4,6 @@ import './layout/index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 import middleware from "./middleware";
-import { Middleware } from "redux";
 import reducer from "./reducers";
 import { Provider } from 'react-redux';
 import { createStore } from "redux";

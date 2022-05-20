@@ -10,9 +10,9 @@ export function setAuthedUser(id){
 }
 
 //Action creator to logout the current authedUser
-export function logoutAuthedUser(id){
+export function logoutAuthedUser(){
     return {
         type: LOGOUT_AUTHED_USER,
-        id,
+     
     }
 }

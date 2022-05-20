@@ -74,8 +74,9 @@ a {
   margin-top: 0px;
 }
 
-.user-info {
+.nav ul li:nth-child(4){
   margin-left: auto;
+
 }
 
 table {
@@ -138,77 +139,9 @@ li {
   margin: 10px;
 }
 
-.tweet {
-  width: 100%;
-  max-width: 590px;
-  padding: 10px;
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid #dad7d7;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.tweet-info {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Hacky but less typing in the video */
-.tweet-info > div > span:first-child {
-  font-weight: bold;
-  margin-right: 5px;
-}
-.tweet-info > div > span:nth-child(2) {
-  color: #969696;
-  font-size: 16px;
-}
-.tweet-info > div > div {
-  color: #969696;
-  font-size: 15px;
-}
-.tweet-info > div > p {
-  font-size: 18px;
-  margin: 10px 0;
-}
-.tweet-icons {
-  display: flex;
-  align-items: center;
-}
-.tweet-icons > span {
-  color: #969696;
-  margin: 0 15px 0 5px;
-  font-size: 18px !important;
-}
-.tweet-icon {
-  font-size: 27px;
-  color: #697784;
-}
-.tweet-icon:hover {
-  color: #00b5d6;
-  cursor: pointer;
-}
-.replying-to {
-  border: none;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  color: #969696;
-  cursor: pointer;
-}
-
 .heart-button {
   background: transparent;
   border: none;
-}
-
-.new-tweet {
-  width: 100%;
-  max-width: 590px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .textarea {
@@ -217,13 +150,6 @@ li {
   padding: 10px;
   font-size: 15px;
   height: 100px;
-}
-
-.tweet-length {
-  text-align: right;
-  margin-top: 10px;
-  font-size: 20px;
-  color: #c3392a;
 }
 
 label input {
@@ -328,7 +254,31 @@ label {
   cursor: pointer;
 }
 
-.answered, .unanswered {
+.answered-question span {
+   width:100%;
+   display:block;
+   font-weight:bold;
+   font-size:15px;
+}
+
+.percentage-card {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.percentage-container {
+  display: flex; 
+  padding-bottom: 20px;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.options {
+  text-decoration: dashed;
+}
+
+.answered-questions, .unanswered {
   float: left;
 }
 
@@ -338,4 +288,12 @@ label {
   text-align:center;
   margin: 0 auto;
   display:inline-block;
+}
+
+.logout-div {
+  cursor:pointer;
+}
+
+.logout-div span {
+  font-weight: lighter !important;
 }

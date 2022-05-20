@@ -5,9 +5,9 @@ export function formatDate (timestamp) {
 }
 
 export function formatQuestion(question, author, authedUser){
-  const hasAnswered = false;
-  const isAuthor = false;
-  console.log(author);
+  let hasAnswered = false;
+  let isAuthor = false;
+  let selectedVote = '';
 
   const {
     id,
@@ -22,26 +22,38 @@ export function formatQuestion(question, author, authedUser){
     timestamp,
   } = question;
 
-  if(question.optionOne.votes.includes(authedUser)){
-    console.log("AUTHED USER HAS ANSWERED");
+  if(question.optionOne.votes.includes(authedUser) || question.optionTwo.votes.includes(authedUser)){
+    hasAnswered = true;
+    if(question.optionOne.votes.includes(authedUser)){
+      selectedVote = question.optionOne.text;
+    } else if (question.optionTwo.votes.includes(authedUser)){
+      selectedVote = question.optionTwo.text;
+    }
   }
 
   if(author === authedUser){
-    console.log("AUTHED USER IS THE WRITER!");
     isAuthor = true;
   }
 
-  const name = author.name;
-  const avatarURL = author.avatarURL;
+  const l1 = question.optionOne.votes.length;
+  const l2 = question.optionTwo.votes.length;
+  const totalVotes = l1 + l2;
+  const percentageOptionOne = Math.round((l1 / totalVotes) * 100);
+  const percentageOptionTwo = Math.round((l2 / totalVotes) * 100);
+
   //combined struct of the questions & author array results
   return {
     id, 
     timestamp, 
-    name,
-    avatarURL,
+    name: author.name,
+    avatarURL : author.avatarURL,
     optionOneText,
     optionTwoText,
     hasAnswered,
+    selectedVote,
     isAuthor,
+    totalVotes,
+    percentageOptionOne,
+    percentageOptionTwo,
   }
 }

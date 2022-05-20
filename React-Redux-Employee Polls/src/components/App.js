@@ -24,14 +24,16 @@ function App(props) {
       <Nav />
       <div className="container">
           {
-            props.loading === true ? null : (
+            props.loading === true 
+              ? null
+              : (
               <Routes>
-                <Route path="/" exact element={<LoginPage/>}/>
+                <Route exact path="/" element={<LoginPage/>}/>
                 <Route exact path='/home' element={<Dashboard />} />
                 <Route path='/questions/:id' element={<QuestionPage/>} />
                 <Route exact path='/leaderboard' element={<Leaderboard />} />
                 <Route exact path='/add' element={<NewQuestion />} />
-                <Route element={<PageNotFound/>} />
+                <Route path="*" element={<PageNotFound/>} />
               </Routes>
             )
           }
@@ -40,8 +42,8 @@ function App(props) {
   );
 }
 
-const mapStateToProps = ({ authedUser }) => ({
-  loading: authedUser === null,
+const mapStateToProps = ({ questions }) => ({
+  loading: questions === null,
 });
 
 export default connect(mapStateToProps)(App);

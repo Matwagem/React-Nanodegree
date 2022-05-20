@@ -1,13 +1,15 @@
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import '../layout/Nav.css';
+import { logoutAuthedUser } from "../actions/authedUser";
 
 const Nav = (props) => {
-    const { user, authedUser } = props;
+    const { user, authedUser, dispatch } = props;
     const avatar = user ? user.avatarURL : '';
     const name = user ? user.name : '';
 
-    console.log(props);
+    const handleClick = () =>{
+        dispatch(logoutAuthedUser());
+    }
 
     return (
         <nav className="nav">
@@ -35,16 +37,23 @@ const Nav = (props) => {
                         </li>
                 }
                 <li>
-                    <Link to='/' exact activeClassName='active'>
-                        <span>Logout</span>
-                    </Link>
+                    {
+                        authedUser 
+                            ?   <div onClick={handleClick} className='logout-div'>
+                                    <span>Logout</span>
+                                </div>
+                            :   <Link to='/' exact activeClassName='active'>
+                                    <span>Login</span>
+                                </Link>
+                    }
+                    
                 </li>
             </ul>
         </nav>
     )
 }
 
-function mapStateToProps( { authedUser, users}, props) {
+function mapStateToProps( { authedUser, users }) {
     return {
         authedUser,
         users,

@@ -14,7 +14,14 @@ export default function questions(state = {}, action){
             };
         case ANSWER_QUESTION:
             return {
-                //TODO: add an answer reducer
+                ...state,
+                [action.qid]: {
+                    ...state[action.qid],
+                    [action.answer]: {
+                        ...state[action.qid][action.answer],
+                        votes: state[action.qid][action.answer].votes.concat([action.authedUser])
+                    }
+                }
             };
         default: 
             return state;

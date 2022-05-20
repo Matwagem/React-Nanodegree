@@ -3,7 +3,6 @@ import { useNavigate, useParams, useLocation } from "react-router";
 import { formatQuestion } from "../utils/helpers";
 import { handleAnswer } from '../actions/questions';
 import LoginChecker from "./LoginChecker";
-import { Link } from "react-router-dom";
 
 const withRouter = (Component) => {
     const ComponentWithRouterProp = (props) => {
@@ -23,7 +22,9 @@ const QuestionPage = (props) => {
         return (
           <div className='question-not-found'>
             <p>This question does not exist!</p>
-            <Link to={"/"}><button>Login</button></Link>
+            <form action="/" method="get">
+                <button>Go Back</button>
+            </form>
           </div>
         );
     }

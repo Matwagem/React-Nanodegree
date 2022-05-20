@@ -12,11 +12,11 @@ describe('_saveQuestion', () => {
         };
         var result = await _saveQuestion(question);
         //all fields are being populated
-        expect(result.author).not.toBeNull();
+        expect(result.author).toBe(question.author);
         expect(result.id).not.toBeNull();
         expect(result.timestamp).not.toBeNull();
-        expect(result.optionOne.text).not.toBeNull();
-        expect(result.optionTwo.text).not.toBeNull();
+        expect(result.optionOne.text).toBe(question.optionOneText);
+        expect(result.optionTwo.text).toBe(question.optionTwoText);
     });
 
     it('will errors out if the wrong info is passed', async() => {

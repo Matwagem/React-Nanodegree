@@ -42,7 +42,7 @@ const Nav = (props) => {
                             ?   <div onClick={handleClick} className='logout-div'>
                                     <span>Logout</span>
                                 </div>
-                            :   <Link to='/' exact activeClassName='active'>
+                            :   <Link to='/'>
                                     <span>Login</span>
                                 </Link>
                     }

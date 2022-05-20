@@ -33,7 +33,7 @@ const NewQuestion = ({dispatch, authedUser}) => {
         }
         setOptionOne("");
         setOptionTwo("");
-        navigate("/home")
+        navigate("/")
     };
 
     return (

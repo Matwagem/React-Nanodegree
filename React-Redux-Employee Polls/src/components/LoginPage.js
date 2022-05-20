@@ -13,9 +13,12 @@ const LoginPage = (props) => {
         e.preventDefault();
         setSelectedOption(e.target.value);
         console.log(e.target.value);
-        if(e.target.value !== ""){
+        if(e.target.value !== "" && e.target.value !== 'none'){
             dispatch(setAuthedUser(e.target.value));
             navigate(location.state.location);
+        } else if(e.target.value === 'none'){
+            dispatch(setAuthedUser(''));
+            navigate("/login");
         }
     }
 
@@ -23,6 +26,7 @@ const LoginPage = (props) => {
         <div className="vote-container">
             <h3>Please select a user to login</h3>
             <select name="users" value={selectedOption} className="user-dropdown" onChange={handleChange}>
+                <option value={'none'} key={'none'}>none</option>
                 {userIds.map(id => (
                 <option value={id} key={id}>
                     {users[id].name}

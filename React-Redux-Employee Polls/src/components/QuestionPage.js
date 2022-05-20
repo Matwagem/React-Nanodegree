@@ -34,7 +34,7 @@ const QuestionPage = (props) => {
     function handleClick(value) {
         const {dispatch, qid } = props;
         dispatch(handleAnswer(qid, value));
-        navigate("/leaderboard")
+        navigate('/questions/'+qid)
     }
 
     return (

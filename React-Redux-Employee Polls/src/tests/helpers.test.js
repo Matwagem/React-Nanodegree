@@ -1,4 +1,4 @@
-import { formatDate, formatQuestion } from "./helpers";
+import { formatDate, formatQuestion } from "../utils/helpers";
 jest.setTimeout(10000);
 
 describe('formatDate', () => {
